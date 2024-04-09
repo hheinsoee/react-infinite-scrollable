@@ -1,0 +1,32 @@
+{
+    "name": "react-infinite-scrollable",
+    "version": "1.0.1",
+    "description": "react utility",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hheinsoee/react-infinite-scrollable.git"
+    },
+    "keywords": [
+        "utility",
+        "react",
+        "infinate scroll",
+        "CMS"
+    ],
+    "author": {
+        "name": "Hein Soe",
+        "email": "hheinsoee@gmail.com",
+        "url": "https://heinsoe.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hheinsoee/react-infinite-scrollable/issues"
+    },
+    "homepage": "https://github.com/hheinsoee/react-infinite-scrollable/issues#readme",
+    "dependencies": {
+        "react": "^18.2.0"
+    }
+}
