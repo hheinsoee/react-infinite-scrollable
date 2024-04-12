@@ -27,8 +27,6 @@ jobs:
         with:
           node-version: "lts/*"
           registry-url: "https://registry.npmjs.org"
-      - name: Install Dependencies
-        run: npm install
 
       - name: Publish to npm
         run: |

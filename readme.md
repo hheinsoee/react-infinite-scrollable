@@ -44,7 +44,7 @@ function YourComponent() {
     setPage((pre) => pre + 1);
   };
   return (
-    <InfiniteScroll
+    <InfiniteScrollable
       onEnd={loadMore}
       loading={loading}
       hasMore={hasMore}
@@ -58,7 +58,7 @@ function YourComponent() {
           <p>{article.body}</p>
         </div> // your component here
       ))}
-    </InfiniteScroll>
+    </InfiniteScrollable>
   );
 }
 ```
