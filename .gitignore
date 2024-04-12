@@ -1,7 +1,3 @@
 node_modules
 dist
-<<<<<<< Updated upstream
-custom-hook*.tgz
-=======
 .npmrc
->>>>>>> Stashed changes
