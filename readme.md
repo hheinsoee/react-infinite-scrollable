@@ -6,7 +6,7 @@
 To get started with react-infinite-scrollable, simply install the package via npm:
 
 ```npm
-$ npm install react-infinite-scrollable --save
+npm install react-infinite-scrollable --save
 ```
 
 ## Usage
