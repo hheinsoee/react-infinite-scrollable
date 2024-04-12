@@ -1,32 +1,45 @@
 {
-    "name": "react-infinite-scrollable",
-    "version": "1.0.1",
-    "description": "react utility",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/hheinsoee/react-infinite-scrollable.git"
-    },
-    "keywords": [
-        "utility",
-        "react",
-        "infinate scroll",
-        "CMS"
-    ],
-    "author": {
-        "name": "Hein Soe",
-        "email": "hheinsoee@gmail.com",
-        "url": "https://heinsoe.com"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/hheinsoee/react-infinite-scrollable/issues"
-    },
-    "homepage": "https://github.com/hheinsoee/react-infinite-scrollable/issues#readme",
-    "dependencies": {
-        "react": "^18.2.0"
-    }
+  "name": "react-infinite-scrollable",
+  "version": "1.0.1",
+  "description": "react utility",
+  "type": "module",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "build:dev": "rollup -c --environment NODE_ENV:development",
+    "build": "rollup -c --environment NODE_ENV:production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hheinsoee/react-infinite-scrollable.git"
+  },
+  "keywords": [
+    "utility",
+    "react",
+    "infinate scroll",
+    "CMS"
+  ],
+  "author": {
+    "name": "Hein Soe",
+    "email": "hheinsoee@gmail.com",
+    "url": "https://heinsoe.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hheinsoee/react-infinite-scrollable/issues"
+  },
+  "homepage": "https://github.com/hheinsoee/react-infinite-scrollable/issues#readme",
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-react": "^7.24.1",
+    "rollup": "^4.9.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "@rollup/plugin-babel": "^6.0.4"
+  }
 }

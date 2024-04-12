@@ -1,3 +1,4 @@
+# react-infinite-scrollable
 `react-infinite-scrollable` is a lightweight and easy-to-use React component that enables infinite scrolling functionality in your web applications. With this package, you can effortlessly implement infinite scrolling for long lists, grids, or any other content that needs to be dynamically loaded as the user scrolls.
 
 ## Installation
