@@ -1,18 +1,18 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 /**
  * A component that implements infinite scrolling behavior.
  * @component
- * @param {Object} props - The component props.
- * @param {boolean} props.hasMore - Indicates whether there are more items to load.
- * @param {boolean} props.loading - Indicates whether the component is currently loading more items.
- * @param {React.ReactNode} [props.loadingComponent] - Optional loading component to display while loading.
- * @param {React.ReactNode} [props.noMoreComponent] - Optional no more data component to display.
- * @param {Function} props.onEnd - A function to load more items.
- * @param {Number} props.offset - A function to load more items.
+ * @param {Object} _ref - The component props.
+ * @param {boolean} _ref.hasMore - Indicates whether there are more items to load.
+ * @param {boolean} _ref.loading - Indicates whether the component is currently loading more items.
+ * @param {React.ReactNode} [_ref.loadingComponent] - Optional loading component to display while loading.
+ * @param {React.ReactNode} [_ref.noMoreComponent] - Optional no more data component to display.
+ * @param {Function} _ref.onEnd - A function to load more items.
+ * @param {Number} _ref.offset - A function to load more items.
  * @returns {JSX.Element} - The rendered component.
  */
-function InfiniteScroll({
+export default function InfiniteScrollable({
   hasMore,
   loading,
   loadingComponent,
@@ -27,7 +27,7 @@ function InfiniteScroll({
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
-            window.scrollBy(0, -5, 'smooth');
+            window.scrollBy(0, -5, "smooth");
             onEnd();
           }
         },
@@ -59,5 +59,3 @@ function InfiniteScroll({
     </div>
   );
 }
-
-export default InfiniteScroll;

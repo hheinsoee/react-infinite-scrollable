@@ -1,12 +1,10 @@
 {
   "name": "react-infinite-scrollable",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "react utility",
   "type": "module",
   "main": "dist/index.js",
-  "publishConfig": {
-    "access": "restricted"
-  },
+  "source": "src/index.js",
   "scripts": {
     "build:dev": "rollup -c --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production"
