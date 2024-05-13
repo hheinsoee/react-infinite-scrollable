@@ -1,17 +1,17 @@
 {
-  "name": "react-infinite-scrollable",
-  "version": "1.0.4",
+  "name": "react-infinite-scrollabl",
+  "version": "1.0.5",
   "description": "react utility",
-  "type": "module",
-  "main": "dist/index.js",
-  "source": "src/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build:dev": "rollup -c --environment NODE_ENV:development",
-    "build": "rollup -c --environment NODE_ENV:production"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hheinsoee/react-infinite-scrollable.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup -c"
   },
   "keywords": [
     "utility",
@@ -19,24 +19,31 @@
     "infinate scroll",
     "CMS"
   ],
-  "author": {
-    "name": "Hein Soe",
-    "email": "hheinsoee@gmail.com",
-    "url": "https://heinsoe.com"
-  },
-  "license": "MIT",
+  "author": "Hein Soe",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/hheinsoee/react-infinite-scrollable/issues"
   },
   "homepage": "https://github.com/hheinsoee/react-infinite-scrollable/issues#readme",
-  "peerDependencies": {
-    "react": ">=16.0.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hheinsoee/react-infinite-scrollable.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.4",
-    "@babel/preset-env": "^7.24.4",
-    "@babel/preset-react": "^7.24.1",
-    "rollup": "^4.9.0",
-    "@rollup/plugin-babel": "^6.0.4"
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/react": "^17.0.18",
+    "react": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.2",
+    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
   }
 }

@@ -1,17 +1,15 @@
 import React, { useEffect, useRef } from "react";
 
-/**
- * A component that implements infinite scrolling behavior.
- * @component
- * @param {Object} _ref - The component props.
- * @param {boolean} _ref.hasMore - Indicates whether there are more items to load.
- * @param {boolean} _ref.loading - Indicates whether the component is currently loading more items.
- * @param {React.ReactNode} [_ref.loadingComponent] - Optional loading component to display while loading.
- * @param {React.ReactNode} [_ref.noMoreComponent] - Optional no more data component to display.
- * @param {Function} _ref.onEnd - A function to load more items.
- * @param {Number} _ref.offset - A function to load more items.
- * @returns {JSX.Element} - The rendered component.
- */
+interface InfiniteScrollable {
+  hasMore: boolean;
+  loading: boolean;
+  loadingComponent?: React.ReactNode;
+  noMoreComponent?: React.ReactNode;
+  onEnd: Function;
+  children?: React.ReactNode[];
+  offset?: number | 0;
+}
+
 export default function InfiniteScrollable({
   hasMore,
   loading,
@@ -19,15 +17,18 @@ export default function InfiniteScrollable({
   noMoreComponent,
   onEnd,
   children,
-  offset = 0,
-}) {
+  offset = 0 as number,
+}: InfiniteScrollable) {
   const observerTarget = useRef(null);
   useEffect(() => {
     if (!loading && hasMore) {
       const observer = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
-            window.scrollBy(0, -5, "smooth");
+            window.scroll({
+              top: window.scrollY - 5,
+              behavior: "smooth",
+            });
             onEnd();
           }
         },
@@ -48,10 +49,16 @@ export default function InfiniteScrollable({
       {children}
       {hasMore && (
         <div style={{ minHeight: 50 }}>
-          {loading && (loadingComponent || <center>loading..</center>)}
+          {loading &&
+            (loadingComponent || (
+              <span style={{ textAlign: "center" }}>loading..</span>
+            ))}
         </div>
       )}
-      {!hasMore && (noMoreComponent || <center>no more</center>)}
+      {!hasMore &&
+        (noMoreComponent || (
+          <span style={{ textAlign: "center" }}>no more</span>
+        ))}
       <div
         ref={observerTarget}
         style={{ paddingTop: 300, marginTop: -300 - offset }}
