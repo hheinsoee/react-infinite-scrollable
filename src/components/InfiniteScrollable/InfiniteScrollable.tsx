@@ -7,7 +7,8 @@ interface InfiniteScrollable {
   noMoreComponent?: React.ReactNode;
   onEnd: Function;
   children?: React.ReactNode[];
-  offset?: number | 0;
+  offset?: number;
+  height?: string | number;
 }
 
 export default function InfiniteScrollable({
@@ -17,9 +18,12 @@ export default function InfiniteScrollable({
   noMoreComponent,
   onEnd,
   children,
-  offset = 0 as number,
+  offset,
+  height,
 }: InfiniteScrollable) {
-  const observerTarget = useRef(null);
+  const observerTarget = useRef<HTMLDivElement | null>(null);
+  const parentObserver = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     if (!loading && hasMore) {
       const observer = new IntersectionObserver(
@@ -44,8 +48,20 @@ export default function InfiniteScrollable({
       };
     }
   }, [observerTarget, loading, hasMore]);
+
+  useEffect(() => {
+    if (!loading && hasMore) {
+      if (observerTarget.current && parentObserver.current) {
+        if (
+          observerTarget.current.offsetTop < parentObserver.current.clientHeight
+        ) {
+          onEnd();
+        }
+      }
+    }
+  }, [observerTarget, loading, hasMore]);
   return (
-    <div>
+    <div style={{ height: height, overflow: "auto" }} ref={parentObserver}>
       {children}
       {hasMore && (
         <div style={{ minHeight: 50 }}>
@@ -59,10 +75,7 @@ export default function InfiniteScrollable({
         (noMoreComponent || (
           <span style={{ textAlign: "center" }}>no more</span>
         ))}
-      <div
-        ref={observerTarget}
-        style={{ paddingTop: 300, marginTop: -300 - offset }}
-      ></div>
+      <div ref={observerTarget} style={{ marginTop: -(offset || 0) }}></div>
     </div>
   );
 }
